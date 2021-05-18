@@ -162,6 +162,15 @@ class _MyHomePageState extends State<MyHomePage> {
     //     ],
     //   ),
     // );
+    // Container(
+    //   width: double.infinity,
+    //
+    //   // child: Card(
+    //   //   color: Colors.blue,
+    //   //   child: Text("Charts Here"),
+    //   //   elevation: 5,
+    //   // ),
+    // ),
     final appBar = AppBar(
       title: Text("Expense Apps", style: TextStyle(fontFamily: 'Open Sans')),
       actions: <Widget>[
@@ -185,15 +194,6 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            // Container(
-            //   width: double.infinity,
-            //
-            //   // child: Card(
-            //   //   color: Colors.blue,
-            //   //   child: Text("Charts Here"),
-            //   //   elevation: 5,
-            //   // ),
-            // ),
             if (isLandscape)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
