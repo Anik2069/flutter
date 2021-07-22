@@ -15,7 +15,7 @@ class MealDetailScreen extends StatelessWidget {
   }
 
   Widget buildContainer(Widget child) {
-    Container(
+    return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: Colors.grey),
@@ -47,15 +47,7 @@ class MealDetailScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 10,
-              ),
-              child: Text(
-                "Ingredients",
-                style: Theme.of(context).textTheme.title,
-              ),
-            ),
+            
             buildSectionTitle(context, 'Ingredients'),
             buildContainer(
               ListView.builder(
@@ -91,6 +83,12 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.delete),
+        onPressed: () {
+          Navigator.of(context).pop(mealID);
+        },
       ),
     );
   }
