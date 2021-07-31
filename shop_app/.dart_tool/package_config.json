@@ -62,6 +62,18 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "http",
+      "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.15.8",
       "packageUri": "lib/",
@@ -84,6 +96,12 @@
       "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0-nullsafety.1",
       "packageUri": "lib/",
       "languageVersion": "2.10"
+    },
+    {
+      "name": "pedantic",
+      "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
     },
     {
       "name": "provider",
@@ -152,7 +170,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-07-22T10:44:12.495234Z",
+  "generated": "2021-07-24T10:43:20.493847Z",
   "generator": "pub",
   "generatorVersion": "2.10.5"
 }
