@@ -9,9 +9,7 @@ class UserProductItem extends StatelessWidget {
   final String title;
   final String imageUrl;
 
-
-
-  UserProductItem(this.id,this.title, this.imageUrl);
+  UserProductItem(this.id, this.title, this.imageUrl);
 
   Widget build(BuildContext context) {
     return ListTile(
@@ -24,19 +22,30 @@ class UserProductItem extends StatelessWidget {
         child: Row(
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.edit),
-              onPressed: () {
-                Navigator.of(context).pushNamed(EditProductScreen.routeName,arguments:id );
-              },
-              color:Theme.of(context).primaryColor
-            ),
+                icon: Icon(Icons.edit),
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamed(EditProductScreen.routeName, arguments: id);
+                },
+                color: Theme.of(context).primaryColor),
             IconButton(
                 icon: Icon(Icons.delete),
-                onPressed: () {
-                  Provider.of<Products>(context,listen: false).deleteProduct(id);
+                onPressed: () async {
+                  try {
+                    await Provider.of<Products>(context, listen: false)
+                        .deleteProduct(id);
+                  } catch (error) {
+                    Scaffold.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          "Deleteing Faild !",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    );
+                  }
                 },
-                color:Theme.of(context).errorColor
-            ),
+                color: Theme.of(context).errorColor),
           ],
         ),
       ),
