@@ -1,4 +1,0 @@
-#Sun Aug 01 02:01:20 BDT 2021
-base.0=D\:\\Flutter_dev\\shop_app\\build\\app\\intermediates\\transforms\\r8\\release\\0\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
