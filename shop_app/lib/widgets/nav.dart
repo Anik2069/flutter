@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/order_screen.dart';
+import 'package:shop_app/screens/product_overview_screen.dart';
 import 'package:shop_app/screens/user_product.dart';
 
 class Nav extends StatelessWidget {
@@ -17,7 +18,7 @@ class Nav extends StatelessWidget {
             leading: Icon(Icons.shop),
             title: Text('Shop'),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed('/');
+              Navigator.of(context).pushReplacementNamed(ProductOverViewScreen.routeName);
             },
           ),
           Divider(),
