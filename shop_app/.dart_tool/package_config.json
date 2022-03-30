@@ -92,6 +92,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/nested-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "path",
       "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0-nullsafety.1",
       "packageUri": "lib/",
@@ -105,9 +111,9 @@
     },
     {
       "name": "provider",
-      "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/provider-3.0.0",
+      "rootUri": "file:///D:/flutter_windows_1.22.6-stable/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.3.3",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.7"
     },
     {
       "name": "sky_engine",
@@ -170,7 +176,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-11-13T17:24:24.604794Z",
+  "generated": "2022-03-26T18:29:40.993880Z",
   "generator": "pub",
   "generatorVersion": "2.10.5"
 }

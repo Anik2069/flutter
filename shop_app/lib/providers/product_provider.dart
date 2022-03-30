@@ -92,10 +92,13 @@ class Products with ChangeNotifier {
   //
   //   return Future.value();
   // }
+  final String addToken;
+
+  Products(this.addToken,this._items);
 
   Future<void> fetchAndSetProducts() async {
-    const url =
-        "https://shop-app-1c56b-default-rtdb.firebaseio.com/products.json";
+    final url =
+        'https://shop-app-1c56b-default-rtdb.firebaseio.com/products.json?auth=$addToken';
     try {
       final response = await http.get(url);
       //print(json.decode(response.body));
@@ -191,7 +194,6 @@ class Products with ChangeNotifier {
     notifyListeners();
     final response = await http.delete(url);
     if (response.statusCode >= 400) {
-
       _items.insert(existingProductIndex, exitingProduct);
       notifyListeners();
       throw HttpException("Could Not Delete product");
