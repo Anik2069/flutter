@@ -10,6 +10,7 @@ import 'package:shop_app/screens/order_screen.dart';
 
 import 'package:shop_app/screens/product_detail_screen.dart';
 import 'package:shop_app/screens/product_overview_screen.dart';
+import 'package:shop_app/screens/splash_screen.dart';
 import 'package:shop_app/screens/user_product.dart';
 import 'package:shop_app/widgets/user_product_item.dart';
 import './providers/product_provider.dart';
@@ -28,33 +29,47 @@ class MyApp extends StatelessWidget {
           value: Auth(),
         ),
         ChangeNotifierProxyProvider<Auth, Products>(
-          update: (ctx, auth, previousProducts) => Products(auth.token,
-              previousProducts == null ? [] : previousProducts.items),
+          update: (ctx, auth, previousProducts) =>
+              Products(auth.token,
+                  previousProducts == null ? [] : previousProducts.items),
         ),
         ChangeNotifierProvider.value(
           value: Cart(),
         ),
-        ChangeNotifierProvider.value(
-          value: Orders(),
+        ChangeNotifierProxyProvider<Auth, Orders>(
+          update: (ctx, auth, previousOrders) =>
+              Orders(
+                  auth.token,
+                  previousOrders == null ? [] : previousOrders.orders),
         ),
       ],
       child: Consumer<Auth>(
-        builder: (ctx, auth, _) => MaterialApp(
-          title: 'MyShop',
-          theme: ThemeData(
-              primarySwatch: Colors.red,
-              accentColor: Colors.orange,
-              fontFamily: 'Lato'),
-          home: auth.isAuth ? ProductOverViewScreen() : AuthScreen(),
-          routes: {
-            ProductOverViewScreen.routeName: (ctx) => ProductOverViewScreen(),
-            ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
-            CartScreen.routeName: (ctx) => CartScreen(),
-            OrdersScreen.routeName: (ctx) => OrdersScreen(),
-            UserProductScreen.routeName: (ctx) => UserProductScreen(),
-            EditProductScreen.routeName: (ctx) => EditProductScreen(),
-          },
-        ),
+        builder: (ctx, auth, _) =>
+            MaterialApp(
+              title: 'MyShop',
+              theme: ThemeData(
+                  primarySwatch: Colors.red,
+                  accentColor: Colors.orange,
+                  fontFamily: 'Lato'),
+              home: auth.isAuth
+                  ? ProductOverViewScreen()
+                  : FutureBuilder(
+                future: auth.tryAutoLogin(),
+                builder: (ctx, authResultSnapshot) =>
+                authResultSnapshot.connectionState == ConnectionState.waiting
+                    ? SplashScreen()
+                    : AuthScreen(),
+              ),
+              routes: {
+                ProductOverViewScreen.routeName: (ctx) =>
+                    ProductOverViewScreen(),
+                ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+                CartScreen.routeName: (ctx) => CartScreen(),
+                OrdersScreen.routeName: (ctx) => OrdersScreen(),
+                UserProductScreen.routeName: (ctx) => UserProductScreen(),
+                EditProductScreen.routeName: (ctx) => EditProductScreen(),
+              },
+            ),
       ),
     );
   }
